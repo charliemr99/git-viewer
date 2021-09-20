@@ -91,3 +91,13 @@ export interface CommitData {
   committer: CommitterDetails;
   parents: Parent[];
 }
+
+export class CommitHistoryResponse {
+  constructor(
+    public readonly id: string,
+    public readonly message: string,
+    public readonly author: string,
+    public readonly avatarSrc: string,
+    public readonly date: Date,
+  ) {}
+}
