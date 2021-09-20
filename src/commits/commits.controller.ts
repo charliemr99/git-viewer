@@ -1,6 +1,6 @@
 import { Controller, Query } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { lastValueFrom } from 'rxjs';
+import { lastValueFrom, Observable } from 'rxjs';
 import { CommitsService } from './commits.service';
 import { DataQueryDto } from './dto/data-query.dto';
 import { GetRepoCommits } from './endpoint-decorator';
@@ -15,10 +15,11 @@ export class CommitsController {
   async getRepoCommits(
     @Query() dataQueryDto: DataQueryDto,
   ): Promise<CommitHistoryResponse[]> {
-    const commitHistoryObservable = this.commitsService.getRepoCommits(
-      dataQueryDto.username,
-      dataQueryDto.repository,
-    );
+    const commitHistoryObservable: Observable<CommitHistoryResponse[]> =
+      this.commitsService.getRepoCommits(
+        dataQueryDto.username,
+        dataQueryDto.repository,
+      );
 
     const response = await lastValueFrom(commitHistoryObservable);
     return response;

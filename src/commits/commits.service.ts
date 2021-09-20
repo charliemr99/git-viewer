@@ -29,6 +29,7 @@ export class CommitsService {
                   author: commitData.commit.author.name,
                   avatarSrc: commitData.author.avatar_url,
                   date: new Date(commitData.commit.author.date),
+                  sha: commitData.sha,
                 } as CommitHistoryResponse),
             );
           }),

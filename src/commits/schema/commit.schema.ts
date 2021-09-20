@@ -99,5 +99,6 @@ export class CommitHistoryResponse {
     public readonly author: string,
     public readonly avatarSrc: string,
     public readonly date: Date,
+    public readonly sha: string,
   ) {}
 }
