@@ -1,9 +1,10 @@
-import { applyDecorators, Get } from '@nestjs/common';
+import { applyDecorators, Get, UseInterceptors } from '@nestjs/common';
 import {
   ApiConflictResponse,
   ApiForbiddenResponse,
   ApiQuery,
 } from '@nestjs/swagger';
+import { GetRepositoryInterceptor } from '../error/repository-not-found.error';
 
 export function GetRepoCommits() {
   const usernameQueryDescription = `**Github Username.**`;
@@ -18,6 +19,7 @@ export function GetRepoCommits() {
   return applyDecorators(
     // ? BEHAVIOR
     Get(),
+    UseInterceptors(GetRepositoryInterceptor),
 
     // ? DOCS
     ApiQuery({
