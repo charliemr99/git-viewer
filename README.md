@@ -2,7 +2,7 @@
 
 ## Description
 
-This is the backend repository of the Git Viewer Task developed using [Nest.js](https://github.com/nestjs/nest) framework. The backend project includes a Swagger UI on [http://localhost:3002/api](http://localhost:3002/api).
+This is the backend repository of the Git Viewer Task developed using [Nest.js](https://github.com/nestjs/nest) framework. The backend project includes a Swagger UI to test the endpoints on [http://localhost:3002/api](http://localhost:3002/api).
 
 Don't forget to also visit [git-viewer-front](https://github.com/charliemr99/git-viewer-front) and follow the installation procedures described on README.
 
